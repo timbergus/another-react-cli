@@ -1,6 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-let App = () => <h1>Hello World!</h1>;
+import store from './store';
+import Routes from './routes';
 
-render(<App />, document.getElementById('root'));
+import './style';
+
+render(
+  <Provider store={ store }>
+    <Routes />
+  </Provider>, document.getElementById('root')
+);

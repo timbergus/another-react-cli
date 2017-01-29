@@ -9,6 +9,10 @@ const {
   rootFiles,
   srcFiles,
   appFiles,
+  componentsFiles,
+  reducersFiles,
+  stylesFiles,
+  utilsFiles,
   images
 } = require('../templates/filenames');
 
@@ -83,6 +87,22 @@ module.exports.projectHandler = () => new Promise((resolve, reject) => {
 
     images.forEach(image => {
       copyFile(`${ options.name }/src/images`, image);
+    });
+
+    componentsFiles.forEach(file => {
+      createFile(`${ options.name }/src/app/components`, file, options);
+    });
+
+    reducersFiles.forEach(file => {
+      createFile(`${ options.name }/src/app/reducers`, file, options);
+    });
+
+    stylesFiles.forEach(file => {
+      createFile(`${ options.name }/src/app/styles`, file, options);
+    });
+
+    utilsFiles.forEach(file => {
+      createFile(`${ options.name }/src/app/utils`, file, options);
     });
 
     console.log(chalk.green('Installing dependencies!'));
