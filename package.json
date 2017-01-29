@@ -1,10 +1,15 @@
 {
   "name": "another-react-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Another React CLI to create and manage new React projects.",
   "main": "index.js",
   "author": "Gustavo Muñoz <timbergus@gmail.com>",
   "license": "MIT",
+  "keywords": ["react", "cli"],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/timbergus/another-react-cli.git"
+  },
   "bin": {
     "arc": "./index.js"
   },
