@@ -1,0 +1,5 @@
+{
+  "title": "{{ name }} Documentation",
+  "source": "./src",
+  "destination": "./docs"
+}
