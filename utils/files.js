@@ -1,10 +1,9 @@
 const fs = require('fs');
-const path = require('path');
 const chalk = require('chalk');
-const { resolve } = require('path');
 const Mustache = require('mustache');
+const { resolve, dirname } = require('path');
 
-const tool = path.dirname(require.main.filename);
+const tool = dirname(require.main.filename);
 
 const readFile = file => {
   try {
