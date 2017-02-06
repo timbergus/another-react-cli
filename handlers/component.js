@@ -1,17 +1,6 @@
 const inquirer = require('inquirer');
 const { createFile } = require('../utils/files');
 
-const component = `import React, { Component } from 'react';
-
-export default class {{ name }}Component extends Component {
-  render () {
-    return(
-      <h1>Hello from Component!</h1>
-    );
-  }
-}
-`;
-
 const questions = [
   {
     type: 'input',
@@ -33,13 +22,13 @@ const questions = [
 ];
 
 module.exports.componentHandler = () => new Promise((resolve, reject) => {
+
+  let output = 'src/app/components';
+
   inquirer.prompt(questions).then(options => {
-    createFile(`./src/app`, [{
-      name: `${ options.name }.jsx`,
-      template: component
-    }], Object.assign(options, {
+    createFile('src/app/components', 'component.jsx', `${ options.name }.jsx`, Object.assign(options, {
       name: options.name.charAt(0).toUpperCase() + options.name.slice(1)
     }));
-    resolve(`Component "${ options.name }" created!`)
+    resolve(`"${ options.name }Component" created!`);
   });
 });

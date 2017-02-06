@@ -74,15 +74,15 @@ module.exports.projectHandler = () => new Promise((resolve, reject) => {
     });
 
     rootFiles.forEach(file => {
-      createFile(options.name, file, options);
+      createFile(options.name, file, file, options);
     });
 
     srcFiles.forEach(file => {
-      createFile(`${ options.name }/src`, file, options);
+      createFile(`${ options.name }/src`, file, file, options);
     });
 
     appFiles.forEach(file => {
-      createFile(`${ options.name }/src/app`, file, options);
+      createFile(`${ options.name }/src/app`, file, file, options);
     });
 
     images.forEach(image => {
@@ -90,20 +90,26 @@ module.exports.projectHandler = () => new Promise((resolve, reject) => {
     });
 
     componentsFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/components`, file, options);
+      createFile(`${ options.name }/src/app/components`, file, file, options);
     });
 
     reducersFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/reducers`, file, options);
+      createFile(`${ options.name }/src/app/reducers`, file, file, options);
     });
 
     stylesFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/styles`, file, options);
+      createFile(`${ options.name }/src/app/styles`, file, file, options);
     });
 
     utilsFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/utils`, file, options);
+      createFile(`${ options.name }/src/app/utils`, file, file, options);
     });
+
+    try {
+      child_process.execSync(`cd ./${ options.name } && git init`);
+    } catch (error) {
+      reject('Cannot create git repository!');
+    }
 
     console.log(chalk.green('Installing dependencies!'));
 

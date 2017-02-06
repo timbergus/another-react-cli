@@ -17,17 +17,17 @@ const createOutput = (input, options) => {
   return Mustache.render(readFile(input) || '', options);
 }
 
-module.exports.createFile = (project, file, options) => {
+module.exports.createFile = (project, inFile, outFile, options) => {
 
-  const input = resolve(tool, 'templates', file);
-  const output = resolve(project, file);
+  const input = resolve(tool, 'templates', inFile);
+  const output = resolve(project, outFile);
 
-  console.log(chalk.yellow(`creating :: ${ file }`));
+  console.log(chalk.yellow(`creating :: ${ outFile }`));
 
   try {
     fs.writeFileSync(output, createOutput(input, options), writeError => {
       if(writeError) {
-        console.log(`Cannot create "${ file }"!`);
+        console.log(`Cannot create "${ outFile }"!`);
       }
     });
   }

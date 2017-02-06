@@ -39,7 +39,9 @@ module.exports.componentsFiles = [
 
 module.exports.reducersFiles = [
   'content.js',
-  'counter.js'
+  'content.test.js',
+  'counter.js',
+  'counter.test.js'
 ];
 
 module.exports.stylesFiles = [
