@@ -4,17 +4,16 @@ const inquirer = require('inquirer');
 const child_process = require('child_process');
 
 const { createFile, copyFile } = require('../utils/files');
+
 const {
-  routes,
   rootFiles,
   srcFiles,
-  appFiles,
   componentsFiles,
   reducersFiles,
   stylesFiles,
   utilsFiles,
   images
-} = require('../templates/filenames');
+} = require('../config/common-files');
 
 const questions = [
   {
@@ -65,12 +64,12 @@ const questions = [
   }
 ];
 
-module.exports.projectHandler = () => new Promise((resolve, reject) => {
+module.exports.projectHandler = type => new Promise((resolve, reject) => {
 
   inquirer.prompt(questions).then(options => {
 
-    routes.forEach(route => {
-      fs.mkdirSync(`./${ options.name }${ route }`);
+    require(`../config/${ type }-paths`).forEach(path => {
+      fs.mkdirSync(`./${ options.name }${ path }`);
     });
 
     rootFiles.forEach(file => {
@@ -81,29 +80,32 @@ module.exports.projectHandler = () => new Promise((resolve, reject) => {
       createFile(`${ options.name }/src`, file, file, options);
     });
 
-    appFiles.forEach(file => {
-      createFile(`${ options.name }/src/app`, file, file, options);
+    // Here we require the file for "app" folder. The application depends on
+    // the user selection.
+
+    require(`../config/${ type }-app`).forEach(file => {
+      createFile(`${ options.name }/src/app`, file.path, file.name, options);
     });
 
     images.forEach(image => {
       copyFile(`${ options.name }/src/images`, image);
     });
 
-    componentsFiles.forEach(file => {
+    // These files are created only if the application is the big one.
+
+    type === `full` && componentsFiles.forEach(file => {
       createFile(`${ options.name }/src/app/components`, file, file, options);
     });
 
-    reducersFiles.forEach(file => {
+    type === `full` && reducersFiles.forEach(file => {
       createFile(`${ options.name }/src/app/reducers`, file, file, options);
     });
 
-    stylesFiles.forEach(file => {
+    type === `full` && stylesFiles.forEach(file => {
       createFile(`${ options.name }/src/app/styles`, file, file, options);
     });
 
-    utilsFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/utils`, file, file, options);
-    });
+    // Then we launch the command line tasks.
 
     try {
       child_process.execSync(`cd ./${ options.name } && git init`);

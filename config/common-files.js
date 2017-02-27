@@ -1,14 +1,3 @@
-module.exports.routes = [
-  '',
-  '/src',
-  '/src/app',
-  '/src/app/components',
-  '/src/app/reducers',
-  '/src/app/styles',
-  '/src/app/utils',
-  '/src/images'
-];
-
 module.exports.rootFiles = [
   '.babelrc',
   '.editorconfig',
@@ -23,13 +12,6 @@ module.exports.rootFiles = [
 
 module.exports.srcFiles = [
   'index.html'
-];
-
-module.exports.appFiles = [
-  'index.jsx',
-  'routes.jsx',
-  'store.js',
-  'style.scss'
 ];
 
 module.exports.componentsFiles = [
@@ -47,11 +29,6 @@ module.exports.reducersFiles = [
 module.exports.stylesFiles = [
   'colors.scss',
   'home.scss'
-];
-
-module.exports.utilsFiles = [
-  'math2.js',
-  'math2.test.js'
 ];
 
 module.exports.images = [

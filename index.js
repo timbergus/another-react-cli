@@ -9,8 +9,8 @@ const question = [{
   type: 'list',
   name: 'command',
   message: 'What do you want to create?',
-  default: 'project',
-  choices: ['project', 'component']
+  default: 'empty application',
+  choices: ['empty application', 'full application', 'component']
 }];
 
 inquirer.prompt(question).then(options => {
