@@ -4,6 +4,10 @@ module.exports = [
     path: 'full-index.jsx'
   },
   {
+    name: 'private.jsx',
+    path: 'private.jsx'
+  },
+  {
     name: 'routes.jsx',
     path: 'routes.jsx'
   },

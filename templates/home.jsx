@@ -1,9 +1,8 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { incrementCounter, decrementCounter } from '../reducers/counter';
 import { getContent } from '../reducers/content';
+import { incrementCounter, decrementCounter } from '../reducers/counter';
 
 const mapStateToProps = state => {
   return {
@@ -24,7 +23,7 @@ class HomeComponent extends React.Component {
 
   logout () {
     Reflect.deleteProperty(localStorage, 'token');
-    hashHistory.push('/login');
+    this.props.history.push('/login');
   }
 
   componentWillMount () {
@@ -39,7 +38,7 @@ class HomeComponent extends React.Component {
         <h3>Counter: { this.props.counter }</h3>
         <button className="green" onClick={ this.props.incrementCounter }>Increment</button>
         <button className="red" onClick={ this.props.decrementCounter }>Decrement</button>
-        <button className="red" onClick={ this.logout }>Logout</button>
+        <button className="red" onClick={ this.logout.bind(this) }>Logout</button>
       </div>
     );
   }
