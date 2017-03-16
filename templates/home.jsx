@@ -34,7 +34,7 @@ class HomeComponent extends React.Component {
   render () {
     return (
       <div>
-        <h1>React Template</h1>
+        <h1>Home component is working!</h1>
         { this.props.content.subtitle.length > 0 && <h2>{ this.props.content.subtitle }</h2> || <h2 className="subtitle">Loading subtitle...</h2> }
         <h3>Counter: { this.props.counter }</h3>
         <RaisedButton

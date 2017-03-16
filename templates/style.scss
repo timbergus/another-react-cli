@@ -21,3 +21,16 @@ h1 {
 .subtitle {
   animation: fadeIn 500ms infinite alternate;
 }
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a + a {
+  margin-left: 10px;
+}
+
+.active {
+  color: cadetblue;
+}

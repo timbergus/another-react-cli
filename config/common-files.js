@@ -15,8 +15,11 @@ module.exports.srcFiles = [
 ];
 
 module.exports.componentsFiles = [
+  'login.jsx',
+  'app.jsx',
   'home.jsx',
-  'login.jsx'
+  'profile.jsx',
+  'about.jsx'
 ];
 
 module.exports.reducersFiles = [
