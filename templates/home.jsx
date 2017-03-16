@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getContent } from '../reducers/content';
 import { incrementCounter, decrementCounter } from '../reducers/counter';
+import { RaisedButton } from 'material-ui';
 
 const mapStateToProps = state => {
   return {
@@ -36,9 +37,27 @@ class HomeComponent extends React.Component {
         <h1>React Template</h1>
         { this.props.content.subtitle.length > 0 && <h2>{ this.props.content.subtitle }</h2> || <h2 className="subtitle">Loading subtitle...</h2> }
         <h3>Counter: { this.props.counter }</h3>
-        <button className="green" onClick={ this.props.incrementCounter }>Increment</button>
-        <button className="red" onClick={ this.props.decrementCounter }>Decrement</button>
-        <button className="red" onClick={ this.logout.bind(this) }>Logout</button>
+        <RaisedButton
+          label="Increment"
+          onClick={ this.props.incrementCounter }
+          labelColor="rgba(255, 255, 255, 1)"
+          backgroundColor="rgba(119, 190, 119, 1)"
+          className="home-button"
+        />
+        <RaisedButton
+          label="Decrement"
+          onClick={ this.props.decrementCounter }
+          labelColor="rgba(255, 255, 255, 1)"
+          backgroundColor="rgba(255, 105, 97, 1)"
+          className="home-button"
+        />
+        <RaisedButton
+          label="Logout"
+          onClick={ this.logout.bind(this) }
+          labelColor="rgba(255, 255, 255, 1)"
+          backgroundColor="rgba(255, 105, 97, 1)"
+          className="home-button"
+        />
       </div>
     );
   }

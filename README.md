@@ -12,4 +12,6 @@ npm -g install another-react-cli
 
 And create a new project just typing __arc__ and answering a few questions.
 
+The empty application creates a single file project, with an stateless component. The full application creates a project with routing, using [react-router](https://reacttraining.com/react-router/) v4, and styles, using [Material UI](http://www.material-ui.com/#/) CSS framework.
+
 Have fun :)

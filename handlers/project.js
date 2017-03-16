@@ -101,10 +101,6 @@ module.exports.projectHandler = type => new Promise((resolve, reject) => {
       createFile(`${ options.name }/src/app/reducers`, file, file, options);
     });
 
-    type === `full` && stylesFiles.forEach(file => {
-      createFile(`${ options.name }/src/app/styles`, file, file, options);
-    });
-
     // Then we launch the command line tasks.
 
     try {

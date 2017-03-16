@@ -1,4 +1,5 @@
 import React from 'react';
+import { RaisedButton } from 'material-ui';
 
 export default class LoginComponent extends React.Component {
 
@@ -11,7 +12,12 @@ export default class LoginComponent extends React.Component {
     return (
       <div>
         <h1>Login</h1>
-          <button className="green" onClick={ this.login.bind(this) }>Login</button>
+          <RaisedButton
+            label="Login"
+            onClick={ this.login.bind(this) }
+            labelColor="rgba(255, 255, 255, 1)"
+            backgroundColor="rgba(119, 158, 203, 1)"
+          />
       </div>
     );
   }

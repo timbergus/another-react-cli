@@ -26,11 +26,6 @@ module.exports.reducersFiles = [
   'counter.test.js'
 ];
 
-module.exports.stylesFiles = [
-  'colors.scss',
-  'home.scss'
-];
-
 module.exports.images = [
   'favicon.png'
 ];

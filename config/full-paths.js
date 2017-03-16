@@ -4,6 +4,5 @@ module.exports = [
   '/src/app',
   '/src/app/components',
   '/src/app/reducers',
-  '/src/app/styles',
   '/src/images'
 ];
