@@ -2,12 +2,13 @@ module.exports.rootFiles = [
   '.babelrc',
   '.editorconfig',
   '.eslintignore',
-  '.eslintrc',
+  '.eslintrc.js',
   '.gitignore',
   'esdoc.json',
   'README.md',
   'package.json',
-  'webpack.config.js'
+  'webpack.config.js',
+  'postcss.config.js'
 ];
 
 module.exports.srcFiles = [

@@ -1,4 +1,6 @@
-import reducer, { getContent } from './content';
+/* globals test, expect */
+
+import reducer from './content';
 
 test('An action must return a message', () => {
 

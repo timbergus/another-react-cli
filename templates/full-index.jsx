@@ -9,7 +9,7 @@ injectTapEventPlugin();
 import store from './store';
 import Routes from './routes';
 
-import './style';
+import './style.css';
 
 render(
   <Provider store={ store }>

@@ -5,7 +5,7 @@ export function getContent () {
     setTimeout(() => {
       dispatch({ type: GET_CONTENT, data: { subtitle: 'This is a subtitle' }});
     }, 5000);
-  }
+  };
 }
 
 export default function reducer (state = { subtitle: '' }, action = {}) {

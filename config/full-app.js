@@ -16,7 +16,7 @@ module.exports = [
     path: 'store.js'
   },
   {
-    name: 'style.scss',
-    path: 'style.scss'
+    name: 'style.css',
+    path: 'style.css'
   }
 ];

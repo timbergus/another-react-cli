@@ -1,57 +1,101 @@
+const glob = require('glob');
+const webpack = require('webpack');
 const { resolve } = require('path');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SystemBellPlugin = require('system-bell-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const PATHS = {
+  app: resolve(__dirname, 'src', 'app', 'index.jsx'),
+  images: resolve(__dirname, 'src', 'images'),
+  build: resolve(__dirname, 'dist'),
+  html: resolve(__dirname, 'src', 'index.html'),
+  nodeModules: resolve(__dirname, 'node_modules')
+};
 
 module.exports = env => ({
-  context: resolve(__dirname, 'src'),
   devtool: env.prod ? 'source-map' : 'eval',
-  bail: env.prod,
-  entry: resolve(__dirname, 'src', 'app', 'index.jsx'),
+  entry: {
+    app: PATHS.app,
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router-dom',
+      'react-tap-event-plugin',
+      'material-ui',
+      'superagent'
+    ]
+  },
   output: {
-    path: resolve(__dirname, 'dist'),
-    filename: 'bundle.[chunkhash].js',
-    pathinfo: !env.prod
+    path: PATHS.build,
+    filename: 'bundle.[hash].js'
   },
   devServer: {
-    inline: true,
-    contentBase: resolve(__dirname, 'dist'),
-    port: 3000,
-    proxy: {
-      '/api/*': 'http://localhost:1337'
-    }
+    contentBase: [PATHS.images],
+    host: '0.0.0.0',
+    port: 3000
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', '.css']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader']
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         exclude: /node_modules/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'postcss-loader'
+          ]
+        })
       },
       {
         test: /\.png$/,
         exclude: /node_modules/,
-        loader: 'url-loader',
-        query: {
-          mimetype: 'image/png'
+        use: {
+          loader: 'url-loader',
+          options: {
+            query: {
+              mimetype: 'image/png'
+            }
+          }
         }
       },
       {
         test: /\.json$/,
         include: /node_modules/,
-        loader: 'json-loader'
+        use: 'json-loader'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: PATHS.html
+    }),
+    new SystemBellPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: resolve(PATHS.images, 'favicon.png'),
+        to: resolve(__dirname, 'dist')
+      }
+    ]),
+    new ExtractTextPlugin('styles.[hash].css'),
+    new PurifyCSSPlugin({
+      paths: glob.sync(resolve(__dirname, 'src', 'app', '**', '*'))
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js'
     })
   ]
 });

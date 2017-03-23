@@ -1,3 +1,5 @@
+/* globals test, expect */
+
 import reducer, { incrementCounter, decrementCounter } from './counter';
 
 test('incrementCounter counter must return action', () => {
