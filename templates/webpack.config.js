@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const PATHS = {
   app: resolve(__dirname, 'src', 'app', 'index.jsx'),
@@ -96,6 +97,13 @@ module.exports = env => ({
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js'
+    }),
+    new CleanWebpackPlugin(['dist'], {
+      root: __dirname,
+      verbose: true,
+      dry: false,
+      exclude: ['shared.js'],
+      watch: false
     })
   ]
 });
