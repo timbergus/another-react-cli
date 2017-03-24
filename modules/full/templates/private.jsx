@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 export default class Private extends Component {
+
+  static propTypes = {
+    component: React.PropTypes.object
+  }
+
   render () {
     let { component, ...rest } = this.props;
     return (
@@ -13,12 +18,7 @@ export default class Private extends Component {
             }
             return (
               <Redirect
-                to={
-                  {
-                    pathname: '/login',
-                    state: { from: props.location }
-                  }
-                }
+                to={{ pathname: '/login', state: { from: props.location }}}
               />
             );
           }

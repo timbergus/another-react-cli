@@ -22,6 +22,15 @@ const mapDispatchToProps = dispatch => {
 
 class HomeComponent extends React.Component {
 
+  static propTypes = {
+    history: React.PropTypes.object,
+    getContent: React.PropTypes.func,
+    incrementCounter: React.PropTypes.func,
+    decrementCounter: React.PropTypes.func,
+    content: React.PropTypes.object,
+    counter: React.PropTypes.number
+  }
+
   logout () {
     Reflect.deleteProperty(localStorage, 'token');
     this.props.history.push('/login');

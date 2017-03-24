@@ -1,0 +1,7 @@
+[
+  {
+    "name": "component.jsx",
+    "path": ["src", "app", "components"],
+    "template": true
+  }
+]

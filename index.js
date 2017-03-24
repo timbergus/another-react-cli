@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 
-const { checkArgs } = require('./utils/actions');
+const { checkArgs } = require('./core/actions');
 
 const question = [{
   type: 'list',

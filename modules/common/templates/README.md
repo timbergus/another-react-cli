@@ -1,4 +1,4 @@
-# {{ name }}
+# {{ name }} Project
 
 This is a [React](https://facebook.github.io/react/) template for a quick start with React and [Redux](https://github.com/reactjs/redux).
 

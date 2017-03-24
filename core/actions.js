@@ -1,5 +1,8 @@
-const { projectHandler } = require('../handlers/project');
-const { componentHandler } = require('../handlers/component');
+// Actions is the firs step. It creates the main menu where you can select
+// which project or element you want to create.
+
+const { projectHandler } = require('./handlers/project');
+const { componentHandler } = require('./handlers/component');
 
 module.exports.checkArgs = command => new Promise((resolve, reject) => {
   switch (command) {
@@ -16,7 +19,7 @@ module.exports.checkArgs = command => new Promise((resolve, reject) => {
       );
       break;
     case 'component':
-      componentHandler().then(
+      componentHandler('component').then(
         response => resolve(response),
         error => reject(error)
       );

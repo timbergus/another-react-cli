@@ -1,0 +1,62 @@
+[
+  {
+    "name": ".babelrc",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": ".editorconfig",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": ".eslintignore",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": ".eslintrc.js",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": ".gitignore",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": "esdoc.json",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": "favicon.png",
+    "path": ["src", "images"],
+    "template": false
+  },
+  {
+    "name": "index.html",
+    "path": ["src"],
+    "template": true
+  },
+  {
+    "name": "package.json",
+    "path": [],
+    "template": true
+  },
+  {
+    "name": "postcss.config.js",
+    "path": [],
+    "template": false
+  },
+  {
+    "name": "README.md",
+    "path": [],
+    "template": true
+  },
+  {
+    "name": "webpack.config.js",
+    "path": [],
+    "template": false
+  }
+]

@@ -3,6 +3,10 @@ import { RaisedButton } from 'material-ui';
 
 export default class LoginComponent extends React.Component {
 
+  static propTypes = {
+    history: React.PropTypes.object
+  }
+
   login () {
     localStorage.token = '12345';
     this.props.history.push('/');
