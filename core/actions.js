@@ -1,24 +1,24 @@
 // Actions is the firs step. It creates the main menu where you can select
 // which project or element you want to create.
 
-const { projectHandler, componentHandler } = require('./handlers');
+const { actionHandler } = require('./handlers');
 
 module.exports.checkArgs = command => new Promise((resolve, reject) => {
   switch (command) {
     case 'empty application':
-      projectHandler('empty').then(
+      actionHandler('empty').then(
         response => resolve(response),
         error => reject(error)
       );
       break;
     case 'full application':
-      projectHandler('full').then(
+      actionHandler('full').then(
         response => resolve(response),
         error => reject(error)
       );
       break;
     case 'component':
-      componentHandler('component').then(
+      actionHandler('component').then(
         response => resolve(response),
         error => reject(error)
       );

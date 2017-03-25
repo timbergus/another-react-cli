@@ -5,62 +5,57 @@ const child_process = require('child_process');
 
 const { createElement } = require('./tools');
 
-const projectForm = require('./forms/project.form');
-const componentForm = require('./forms/component.form');
+const forms = {
+  empty: require('./forms/project.form'),
+  full: require('./forms/project.form'),
+  component: require('./forms/component.form')
+}
 
-module.exports.componentHandler = type => new Promise((resolve, reject) => {
-  inquirer.prompt(componentForm)
+module.exports.actionHandler = type => new Promise((resolve, reject) => {
+  inquirer.prompt(forms[type])
     .then(options => {
 
-      let newOptions = Object.assign(options, {
-        name: options.name.charAt(0).toUpperCase() + options.name.slice(1)
-      });
+      if (type !== 'component') {
 
-      require(`../modules/${ type }/config.json`).forEach(file => {
-        createElement(newOptions, file, ['modules', type, 'templates'], type);
-      });
+        // First we create the project folder.
 
-      resolve(`"${ options.name }Component" created!`);
-    });
-});
+        fs.mkdirSync(`./${ options.name }`);
 
-module.exports.projectHandler = type => new Promise((resolve, reject) => {
-  inquirer.prompt(projectForm)
-    .then(options => {
+        // Then we create the common files.
 
-      // First we create the project folder.
-
-      fs.mkdirSync(`./${ options.name }`);
-
-      // Then we create the common files.
-
-      require('../modules/common/config.json').forEach(file => {
-        createElement(options, file, ['modules', 'common', 'templates']);
-      });
+        require('../modules/common/config.json').forEach(file => {
+          createElement(options, file, ['modules', 'common', 'templates']);
+        });
+      }
 
       // And finally, we create the project's files.
 
       require(`../modules/${ type }/config.json`).forEach(file => {
-        createElement(options, file, ['modules', type, 'templates']);
+        createElement(options, file, ['modules', type, 'templates'], type);
       });
 
-      // Then we launch the command line tasks.
+      // Then we launch the command line tasks if we are not creaating a
+      // component.
 
-      try {
-        child_process.execSync(`cd ./${ options.name } && git init`);
-      } catch (error) {
-        reject('Cannot create git repository!');
+      if (type === 'component') {
+        resolve(`"${ options.name }Component" created!`);
+      } else {
+        try {
+          child_process.execSync(`cd ./${ options.name } && git init`);
+        } catch (error) {
+          reject('Cannot create git repository!');
+        }
+
+        console.log(chalk.green('Installing dependencies!'));
+
+        try {
+          child_process.execSync(`cd ./${ options.name } && yarn install`);
+        } catch (error) {
+          reject('Cannot install dependencies!');
+        }
+
+        resolve(`Project "${ options.name }" created!`);
       }
-
-      console.log(chalk.green('Installing dependencies!'));
-
-      try {
-        child_process.execSync(`cd ./${ options.name } && yarn install`);
-      } catch (error) {
-        reject('Cannot install dependencies!');
-      }
-
-      resolve(`Project "${ options.name }" created!`);
     })
     .catch(error => {
       reject('Cannot create project!');

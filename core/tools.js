@@ -1,6 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const Mustache = require('mustache');
+const upperCamelCase = require('uppercamelcase');
 const { resolve, dirname } = require('path');
 
 const tool = dirname(require.main.filename);
@@ -29,7 +30,7 @@ module.exports.createElement = (options, file, path, type = '') => {
   let to = resolve(name, ...file.path, file.name);
 
   if (type === 'component') {
-    to = resolve(name, ...file.path, `${ options.name }.component.jsx`);
+    to = resolve(name, ...file.path, `${ options.name }.jsx`);
   }
 
   file.path.reduce((path, folder) => {
@@ -40,6 +41,12 @@ module.exports.createElement = (options, file, path, type = '') => {
   }, name);
 
   console.log(chalk.yellow('creating :::'), chalk.white(file.name));
+
+  if (type === 'component') {
+    Object.assign(options, {
+      name: upperCamelCase(options.name)
+    });
+  }
 
   if (file.template) {
     try {
