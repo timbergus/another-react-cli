@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 const child_process = require('child_process');
 
-const { createElement } = require('./files');
+const { createElement } = require('./tools');
 
 const projectForm = require('./forms/project.form');
 const componentForm = require('./forms/component.form');
