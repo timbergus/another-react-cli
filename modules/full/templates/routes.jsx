@@ -10,6 +10,10 @@ export default class Routes extends React.Component {
     return localStorage.token && localStorage.token === '12345';
   }
 
+  admit () {
+    return <Redirect to="/app/home" />;
+  }
+
   expel () {
     return <Redirect to="/login" />;
   }
@@ -19,15 +23,17 @@ export default class Routes extends React.Component {
       <HashRouter>
         <div>
           <Route exact path="/" render={ () => {
-            return this.isLogged() ? <Redirect to="/app" /> : this.expel();
+            return this.isLogged() ? this.admit() : this.expel();
           } } />
-          <Route path="/login" component={ LoginComponent } />
-          <Route path="/app" render={ () => {
-            return this.isLogged() ? <AppComponent /> : this.expel();
+          <Route exact path="/login" render={ props => {
+            return this.isLogged() ? this.admit() : <LoginComponent { ...props } />;
           } }/>
           <Route exact path="/app" render={ () => {
-            return this.isLogged() ? <Redirect to="/app/home" /> : this.expel();
-          } } />
+            return this.isLogged() ? this.admit() : this.expel();
+          } }/>
+          <Route path="/app" render={ props => {
+            return this.isLogged() ? <AppComponent { ...props } /> : this.expel();
+          } }/>
         </div>
       </HashRouter>
     );

@@ -50,11 +50,6 @@
     "template": false
   },
   {
-    "name": "private.jsx",
-    "path": ["src", "app"],
-    "template": false
-  },
-  {
     "name": "routes.jsx",
     "path": ["src", "app"],
     "template": false
