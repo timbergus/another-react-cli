@@ -19,6 +19,26 @@ module.exports = [
     }
   },
   {
+    type: 'confirm',
+    name: 'websockets',
+    message: 'websockets:'
+  },
+  {
+    type: 'confirm',
+    name: 'material-ui',
+    message: 'material-ui:'
+  },
+  {
+    type: 'confirm',
+    name: 'redux',
+    message: 'redux:'
+  },
+  {
+    type: 'confirm',
+    name: 'routes',
+    message: 'routes:'
+  },
+  {
     type: 'input',
     name: 'version',
     message: 'version:',

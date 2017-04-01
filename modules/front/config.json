@@ -1,0 +1,74 @@
+[
+  {
+    "name": "content.js",
+    "path": ["src", "app", "reducers"],
+    "template": false,
+    "dependency": "redux"
+  },
+  {
+    "name": "content.test.js",
+    "path": ["src", "app", "reducers"],
+    "template": false,
+    "dependency": "redux"
+  },
+  {
+    "name": "counter.js",
+    "path": ["src", "app", "reducers"],
+    "template": false,
+    "dependency": "redux"
+  },
+  {
+    "name": "counter.test.js",
+    "path": ["src", "app", "reducers"],
+    "template": false,
+    "dependency": "redux"
+  },
+  {
+    "name": "index.jsx",
+    "path": ["src", "app"],
+    "template": true,
+    "dependency": false
+  },
+  {
+    "name": "store.js",
+    "path": ["src", "app"],
+    "template": false,
+    "dependency": "redux"
+  },
+  {
+    "name": "routes.jsx",
+    "path": ["src", "app"],
+    "template": false,
+    "dependency": "routes"
+  },
+  {
+    "name": "about.jsx",
+    "path": ["src", "app", "components"],
+    "template": false,
+    "dependency": "routes"
+  },
+  {
+    "name": "home.jsx",
+    "path": ["src", "app", "components"],
+    "template": false,
+    "dependency": "routes"
+  },
+  {
+    "name": "login.jsx",
+    "path": ["src", "app", "components"],
+    "template": false,
+    "dependency": "routes"
+  },
+  {
+    "name": "profile.jsx",
+    "path": ["src", "app", "components"],
+    "template": false,
+    "dependency": "routes"
+  },
+  {
+    "name": "secure.jsx",
+    "path": ["src", "app", "components"],
+    "template": false,
+    "dependency": "routes"
+  }
+]

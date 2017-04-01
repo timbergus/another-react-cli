@@ -5,6 +5,12 @@ const { actionHandler } = require('./handlers');
 
 module.exports.checkArgs = command => new Promise((resolve, reject) => {
   switch (command) {
+    case 'front':
+      actionHandler('front').then(
+        response => resolve(response),
+        error => reject(error)
+      );
+      break;
     case 'empty application':
       actionHandler('empty').then(
         response => resolve(response),
