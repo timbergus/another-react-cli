@@ -50,13 +50,13 @@
   {
     "name": "home.jsx",
     "path": ["src", "app", "components"],
-    "template": false,
+    "template": true,
     "dependency": "routes"
   },
   {
     "name": "login.jsx",
     "path": ["src", "app", "components"],
-    "template": false,
+    "template": true,
     "dependency": "routes"
   },
   {
@@ -68,6 +68,12 @@
   {
     "name": "secure.jsx",
     "path": ["src", "app", "components"],
+    "template": true,
+    "dependency": "routes"
+  },
+  {
+    "name": "style.css",
+    "path": ["src", "app"],
     "template": false,
     "dependency": "routes"
   }

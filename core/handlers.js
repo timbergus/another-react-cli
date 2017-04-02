@@ -7,8 +7,6 @@ const { createElement } = require('./tools');
 
 const forms = {
   front: require('./forms/project.form'),
-  empty: require('./forms/project.form'),
-  full: require('./forms/project.form'),
   component: require('./forms/component.form')
 }
 

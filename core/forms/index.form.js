@@ -5,5 +5,5 @@ module.exports = [{
   name: 'command',
   message: 'What do you want to create?',
   default: 'front',
-  choices: ['front', 'empty application', 'full application', 'component']
+  choices: ['front', 'component']
 }];

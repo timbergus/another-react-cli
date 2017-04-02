@@ -1,4 +1,4 @@
-import React{{^routes}}, { Component }{{/routes}} from 'react';
+import React{{^ routes }}, { Component }{{/ routes }} from 'react';
 import { render } from 'react-dom';
 {{# redux }}
 import { Provider } from 'react-redux';
@@ -24,13 +24,13 @@ const socket = io.connect('http://localhost:1337');
 
 socket.on('connect', () => console.log('Socket connected!'));
 {{/ websockets }}
-{{#routes}}
+{{# routes}}
 
 import Routes from './routes';
-{{/routes}}
-{{^routes}}
+{{/ routes }}
+{{^ routes }}
 
-export default class App extends Component {
+class App extends Component {
 {{# websockets }}
 
   static propTypes = {
@@ -52,7 +52,7 @@ export default class App extends Component {
     );
   }
 }
-{{/routes}}
+{{/ routes }}
 
 render(
   {{# redux }}
@@ -61,7 +61,7 @@ render(
   {{# material-ui }}
   {{# redux }}  {{/ redux }}<MuiThemeProvider>
   {{/ material-ui }}
-  {{# redux }}  {{/ redux }}{{# material-ui }}  {{/ material-ui }}<{{#routes}}Routes{{/routes}}{{^routes}}App{{/routes}}{{# websockets }} socket={ socket }{{/ websockets }} />
+  {{# redux }}  {{/ redux }}{{# material-ui }}  {{/ material-ui }}<{{# routes}}Routes{{/ routes }}{{^ routes }}App{{/ routes }}{{# websockets }} socket={ socket }{{/ websockets }} />
   {{# material-ui }}
   {{# redux }}  {{/ redux }}</MuiThemeProvider>
   {{/ material-ui }}

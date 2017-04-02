@@ -11,18 +11,6 @@ module.exports.checkArgs = command => new Promise((resolve, reject) => {
         error => reject(error)
       );
       break;
-    case 'empty application':
-      actionHandler('empty').then(
-        response => resolve(response),
-        error => reject(error)
-      );
-      break;
-    case 'full application':
-      actionHandler('full').then(
-        response => resolve(response),
-        error => reject(error)
-      );
-      break;
     case 'component':
       actionHandler('component').then(
         response => resolve(response),
