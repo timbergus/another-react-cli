@@ -15,27 +15,15 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    {{# material-ui }}
     "material-ui": "0.17.1",
-    {{/ material-ui }}
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    {{# redux }}
     "react-redux": "5.0.3",
-    {{/ redux }}
-    {{# routes}}
     "react-router-dom": "4.0.0",
-    {{/ routes}}
-    {{# material-ui }}
     "react-tap-event-plugin": "2.0.1",
-    {{/ material-ui }}
-    {{# redux }}
     "redux": "3.6.0",
     "redux-thunk": "2.2.0",
-    {{/ redux }}
-    {{# websockets }}
     "socket.io-client": "1.7.2",
-    {{/ websockets }}
     "superagent": "3.5.2"
   },
   "devDependencies": {
