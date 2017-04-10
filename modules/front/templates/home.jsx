@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 {{# redux }}
 import { connect } from 'react-redux';
@@ -29,13 +30,13 @@ const mapDispatchToProps = dispatch => {
 {{^ redux }}export default {{/ redux }}class HomeComponent extends Component {
 
   static propTypes = {
-    history: React.PropTypes.object{{# redux }},{{/ redux }}
+    history: PropTypes.object{{# redux }},{{/ redux }}
     {{# redux }}
-    getContent: React.PropTypes.func,
-    incrementCounter: React.PropTypes.func,
-    decrementCounter: React.PropTypes.func,
-    content: React.PropTypes.object,
-    counter: React.PropTypes.number
+    getContent: PropTypes.func,
+    incrementCounter: PropTypes.func,
+    decrementCounter: PropTypes.func,
+    content: PropTypes.object,
+    counter: PropTypes.number
     {{/ redux }}
   }
   {{# redux }}

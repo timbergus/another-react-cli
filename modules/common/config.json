@@ -2,61 +2,73 @@
   {
     "name": ".babelrc",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": ".editorconfig",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": ".eslintignore",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": ".eslintrc.js",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": ".gitignore",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": "esdoc.json",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": "favicon.png",
     "path": ["src", "images"],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": "index.html",
     "path": ["src"],
-    "template": true
+    "template": true,
+    "dependency": false
   },
   {
     "name": "package.json",
     "path": [],
-    "template": true
+    "template": true,
+    "dependency": false
   },
   {
     "name": "postcss.config.js",
     "path": [],
-    "template": false
+    "template": false,
+    "dependency": false
   },
   {
     "name": "README.md",
     "path": [],
-    "template": true
+    "template": true,
+    "dependency": false
   },
   {
     "name": "webpack.config.js",
     "path": [],
-    "template": false
+    "template": true,
+    "dependency": false
   }
 ]

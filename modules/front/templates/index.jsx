@@ -1,11 +1,14 @@
+{{# websockets }}
+import PropTypes from 'prop-types';
+{{/ websockets }}
 import React{{^ routes }}, { Component }{{/ routes }} from 'react';
 import { render } from 'react-dom';
 {{# redux }}
 import { Provider } from 'react-redux';
 {{/ redux }}
 {{# material-ui }}
+import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 {{/ material-ui }}
 {{# websockets }}
 import io from 'socket.io-client';
@@ -34,7 +37,7 @@ class App extends Component {
 {{# websockets }}
 
   static propTypes = {
-    socket: React.PropTypes.object
+    socket: PropTypes.object
   }
 
   componentWillMount () {

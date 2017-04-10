@@ -1,12 +1,13 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 {{# material-ui }}
 import { RaisedButton } from 'material-ui';
 {{/ material-ui }}
 
-export default class LoginComponent extends React.Component {
+export default class LoginComponent extends Component {
 
   static propTypes = {
-    history: React.PropTypes.object
+    history: PropTypes.object
   }
 
   login () {

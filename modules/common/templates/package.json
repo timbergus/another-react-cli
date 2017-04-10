@@ -14,17 +14,26 @@
     "test": "jest"
   },
   "dependencies": {
-    "classnames": "2.2.5",
-    "material-ui": "0.17.1",
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    "react-redux": "5.0.3",
-    "react-router-dom": "4.0.0",
-    "react-tap-event-plugin": "2.0.1",
+    "prop-types": "15.5.6",
+    {{# redux }}
     "redux": "3.6.0",
     "redux-thunk": "2.2.0",
+    "react-redux": "5.0.3",
+    {{/ redux }}
+    {{# routes}}
+    "react-router-dom": "4.0.0",
+    {{/ routes}}
+    {{# material-ui }}
+    "material-ui": "0.17.1",
+    "react-tap-event-plugin": "2.0.1",
+    {{/ material-ui }}
+    {{# websockets }}
     "socket.io-client": "1.7.2",
-    "superagent": "3.5.2"
+    {{/ websockets }}
+    "superagent": "3.5.2",
+    "classnames": "2.2.5"
   },
   "devDependencies": {
     "babel-core": "6.24.0",

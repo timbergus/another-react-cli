@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 {{# material-ui }}
@@ -11,7 +12,7 @@ import AboutComponent from './about';
 export default class SecureComponent extends Component {
 
   static propTypes = {
-    history: React.PropTypes.object
+    history: PropTypes.object
   }
 
   logout () {

@@ -20,19 +20,42 @@ module.exports = env => ({
   devtool: env.prod ? 'source-map' : 'eval',
   entry: {
     app: PATHS.app,
-    vendor: [
+    'vendor-react': [
       'react',
       'react-dom',
+      'prop-types'
+    ],
+    {{# redux }}
+    'vendor-redux': [
+      'redux',
       'react-redux',
-      'react-router-dom',
-      'react-tap-event-plugin',
+      'redux-thunk'
+    ],
+    {{/ redux }}
+    {{# routes}}
+    'vendor-routes': [
+      'react-router-dom'
+    ],
+    {{/ routes}}
+    {{# material-ui }}
+    'vendor-material-ui': [
       'material-ui',
-      'superagent'
+      'react-tap-event-plugin'
+    ],
+    {{/ material-ui }}
+    {{# websockets }}
+    'vendor-sockets': [
+      'socket.io-client'
+    ],
+    {{/ websockets }}
+    'vendor-utils': [
+      'superagent',
+      'classnames'
     ]
   },
   output: {
     path: PATHS.build,
-    filename: 'bundle.[hash].js'
+    filename: '[name].[chunkhash].js'
   },
   devServer: {
     contentBase: [PATHS.images],
@@ -86,17 +109,31 @@ module.exports = env => ({
     new SystemBellPlugin(),
     new CopyWebpackPlugin([
       {
-        from: resolve(PATHS.images, 'favicon.png'),
-        to: resolve(__dirname, 'dist')
+        from: resolve(PATHS.images),
+        to: resolve(__dirname, 'dist', 'assets', 'images')
       }
     ]),
-    new ExtractTextPlugin('styles.[hash].css'),
+    new ExtractTextPlugin('styles.[chunkhash].css'),
     new PurifyCSSPlugin({
       paths: glob.sync(resolve(__dirname, 'src', 'app', '**', '*'))
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.bundle.js'
+      name: [
+        'vendor-react',
+        {{# redux }}
+        'vendor-redux',
+        {{/ redux }}
+        {{# routes}}
+        'vendor-routes',
+        {{/ routes}}
+        {{# material-ui }}
+        'vendor-material-ui',
+        {{/ material-ui }}
+        {{# websockets }}
+        'vendor-sockets',
+        {{/ websockets }}
+        'vendor-utils'
+      ]
     }),
     new CleanWebpackPlugin(['dist'], {
       root: __dirname,
