@@ -135,6 +135,10 @@ module.exports = env => ({
         'vendor-utils'
       ]
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: 2
+    }),
     new CleanWebpackPlugin(['dist'], {
       root: __dirname,
       verbose: true,

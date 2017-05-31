@@ -31,3 +31,5 @@ To add styles we are going to use Sass. I like Sass. So we are going to add the 
 ```javascript
 import './style.scss';
 ```
+
+The __build:output__ script works with [WebPAck Analyse](https://webpack.github.io/analyse/) and it's amazing!
