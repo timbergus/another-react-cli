@@ -61,7 +61,7 @@ module.exports.actionHandler = type => new Promise((resolve, reject) => {
         console.log(chalk.green('Installing dependencies!'));
 
         try {
-          child_process.execSync(`cd ./${ options.name } && yarn install`);
+          child_process.execSync(`cd ./${ options.name } && npm install`);
         } catch (error) {
           reject('Cannot install dependencies!');
         }
