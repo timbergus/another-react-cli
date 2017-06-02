@@ -24,12 +24,6 @@
     "dependency": false
   },
   {
-    "name": ".gitignore",
-    "path": [],
-    "template": false,
-    "dependency": false
-  },
-  {
     "name": ".npmignore",
     "path": [],
     "template": false,
