@@ -21,17 +21,17 @@
     {{# redux }}
     "redux": "3.6.0",
     "redux-thunk": "2.2.0",
-    "react-redux": "5.0.3",
+    "react-redux": "5.0.5",
     {{/ redux }}
     {{# routes}}
-    "react-router-dom": "4.0.0",
+    "react-router-dom": "4.1.1",
     {{/ routes}}
     {{# material-ui }}
-    "material-ui": "0.17.1",
+    "material-ui": "0.18.1",
     "react-tap-event-plugin": "2.0.1",
     {{/ material-ui }}
     {{# websockets }}
-    "socket.io-client": "1.7.2",
+    "socket.io-client": "2.0.2",
     {{/ websockets }}
     "superagent": "3.5.2",
     "classnames": "2.2.5"
@@ -61,6 +61,7 @@
     "postcss-cssnext": "2.11.0",
     "postcss-loader": "2.0.5",
     "precss": "1.4.0",
+    "purify-css": "1.2.2",
     "purifycss-webpack": "0.7.0",
     "sass-loader": "6.0.5",
     "style-loader": "0.18.1",

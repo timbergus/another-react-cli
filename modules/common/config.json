@@ -30,6 +30,12 @@
     "dependency": false
   },
   {
+    "name": ".npmignore",
+    "path": [],
+    "template": false,
+    "dependency": false
+  },
+  {
     "name": "esdoc.json",
     "path": [],
     "template": false,
