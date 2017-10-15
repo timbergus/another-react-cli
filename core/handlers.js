@@ -66,7 +66,15 @@ module.exports.actionHandler = type => new Promise((resolve, reject) => {
           reject('Cannot install dependencies!');
         }
 
-        resolve(`Project "${ options.name }" created!`);
+        resolve([
+          `Project "${ options.name }" created!\n`,
+          'Instructions:',
+          '* To start the project:\tnpm start',
+          '* To build the project:\tnpm run build',
+          '* To create the docs:\tnpm run docs',
+          '* To check the code:\tnpm run lint',
+          '* To test the project:\tnpm test',
+        ]);
       }
     })
     .catch(error => {
