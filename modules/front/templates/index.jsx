@@ -1,40 +1,37 @@
-{{# websockets }}
-import PropTypes from 'prop-types';
-{{/ websockets }}
-import React{{^ routes }}, { Component }{{/ routes }} from 'react';
+import React{{^routes}}, { Component }{{/routes}} from 'react';
 import { render } from 'react-dom';
-{{# redux }}
+{{#websockets}}
+{{^routes}}
+import PropTypes from 'prop-types';
+{{/routes}}
+{{/websockets}}
+{{#redux}}
 import { Provider } from 'react-redux';
-{{/ redux }}
-{{# material-ui }}
+{{/redux}}
+{{#material-ui}}
 import { MuiThemeProvider } from 'material-ui';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-{{/ material-ui }}
-{{# websockets }}
+{{/material-ui}}
+{{#websockets}}
 import io from 'socket.io-client';
-{{/ websockets }}
-{{# material-ui }}
-
-injectTapEventPlugin();
-{{/ material-ui }}
-{{# redux }}
+{{/websockets}}
+{{#redux}}
 
 import store from './store';
-{{/ redux }}
-{{# websockets }}
+{{/redux}}
+{{#websockets}}
 
 const socket = io.connect('http://localhost:1337');
 
 socket.on('connect', () => console.log('Socket connected!'));
-{{/ websockets }}
-{{# routes}}
+{{/websockets}}
+{{#routes}}
 
 import Routes from './routes';
-{{/ routes }}
-{{^ routes }}
+{{/routes}}
+{{^routes}}
 
 class App extends Component {
-{{# websockets }}
+{{#websockets}}
 
   static propTypes = {
     socket: PropTypes.object
@@ -48,28 +45,28 @@ class App extends Component {
     this.props.socket.emit('isAlive');
   }
 
-{{/ websockets }}
+{{/websockets}}
   render () {
     return (
       <h1>Hello, World!</h1>
     );
   }
 }
-{{/ routes }}
+{{/routes}}
 
 render(
-  {{# redux }}
+  {{#redux}}
   <Provider store={ store }>
-  {{/ redux }}
-  {{# material-ui }}
-  {{# redux }}  {{/ redux }}<MuiThemeProvider>
-  {{/ material-ui }}
-  {{# redux }}  {{/ redux }}{{# material-ui }}  {{/ material-ui }}<{{# routes}}Routes{{/ routes }}{{^ routes }}App{{/ routes }}{{# websockets }} socket={ socket }{{/ websockets }} />
-  {{# material-ui }}
-  {{# redux }}  {{/ redux }}</MuiThemeProvider>
-  {{/ material-ui }}
-  {{# redux }}
+  {{/redux}}
+  {{#material-ui}}
+  {{#redux}}  {{/ redux }}<MuiThemeProvider>
+  {{/material-ui}}
+  {{#redux}}  {{/redux}}{{#material-ui}}  {{/material-ui}}<{{#routes}}Routes{{/routes}}{{^routes}}App{{/routes}}{{#websockets}} socket={ socket }{{/websockets}} />
+  {{#material-ui}}
+  {{#redux}}  {{/redux}}</MuiThemeProvider>
+  {{/material-ui}}
+  {{#redux}}
   </Provider>
-  {{/ redux }}
+  {{/redux}}
   , document.getElementById('root')
 );

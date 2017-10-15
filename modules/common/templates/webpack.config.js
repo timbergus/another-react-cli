@@ -39,8 +39,7 @@ module.exports = env => ({
     {{/ routes}}
     {{# material-ui }}
     'vendor-material-ui': [
-      'material-ui',
-      'react-tap-event-plugin'
+      'material-ui'
     ],
     {{/ material-ui }}
     {{# websockets }}
@@ -49,8 +48,10 @@ module.exports = env => ({
     ],
     {{/ websockets }}
     'vendor-utils': [
-      'superagent',
-      'classnames'
+      'classnames',
+      'moment',
+      'numeral',
+      'superagent'
     ]
   },
   output: {
