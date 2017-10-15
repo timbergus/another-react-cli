@@ -5,9 +5,6 @@
   "main": "index.js",
   "author": "Gustavo Muñoz <timbergus@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "publish": "npm publish"
-  },
   "keywords": [
     "react",
     "cli"
