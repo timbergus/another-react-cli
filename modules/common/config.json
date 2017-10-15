@@ -42,6 +42,11 @@
     "dependency": false
   },
   {
+    "name": ".gitignore",
+    "path": [],
+    "template": false
+  },
+  {
     "name": "package.json",
     "path": [],
     "template": true,
