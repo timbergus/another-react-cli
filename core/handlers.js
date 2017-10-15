@@ -52,12 +52,6 @@ module.exports.actionHandler = type => new Promise((resolve, reject) => {
           reject('Cannot create git repository!');
         }
 
-	try {
-          child_process.execSync(`cd ./${ options.name } && mv .npmignore .gitignore`);
-        } catch (error) {
-          reject('Cannot rename .npmignore');
-        }
-
         console.log(chalk.green('Installing dependencies!'));
 
         try {
