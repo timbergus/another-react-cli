@@ -1,10 +1,13 @@
 {
   "name": "another-react-cli",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "Another React CLI to create and manage new React projects.",
   "main": "index.js",
   "author": "Gustavo Muñoz <timbergus@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "publish": "npm publish"
+  },
   "keywords": [
     "react",
     "cli"
