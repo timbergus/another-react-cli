@@ -1,10 +1,13 @@
 {
   "name": "another-react-cli",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Another React CLI to create and manage new React projects.",
   "main": "index.js",
   "author": "Gustavo Muñoz <timbergus@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "postinstall": "mv modules/common/templates/gitignore modules/common/templates/.gitignore"
+  },
   "keywords": [
     "react",
     "cli"
