@@ -1,5 +1,7 @@
 # Another React CLI (ARC)
 
+> ## This project has being __deprecated__ in favor of __[Fullstack CLI](https://www.npmjs.com/package/fullstack-cli)__ and it is no longer maintained. This new project covers both, the front and the back.
+
 This is another React CLI to manage and create React projects, using  [inquirer.js](https://github.com/SBoudrias/Inquirer.js/) to ask questions to the user to configure the creation process.
 
 The environment created uses [WebPack](https://webpack.github.io/) to pack the application, and [npm](https://www.npmjs.com/)/[yarn](https://yarnpkg.com/en/) script to automatize the process.
